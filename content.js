@@ -1,6 +1,7 @@
 // Add these variables at the top of the file
 let lastSelectedText = '';
 let lastSelectionTime = 0;
+let currentSelectedText = '';
 const DEBOUNCE_TIME = 10000; // 10 seconds in milliseconds
 
 // Function to show improved text popup
@@ -214,18 +215,24 @@ async function showImprovedTextPopup(selectedText) {
   }
 }
 
-// Function to handle text selection with delay
-let selectionTimeout;
-let currentSelectedText = '';
-
-function handleTextSelection(selectedText) {
-  currentSelectedText = selectedText;
+// Function to handle text selection
+function handleTextSelection() {
+  const selection = window.getSelection();
+  const selectedText = selection.toString().trim();
+  
+  if (selectedText) {
+    currentSelectedText = selectedText;
+  }
 }
 
-// Listen for text selection
-document.addEventListener('mouseup', function(e) {
-  const selectedText = window.getSelection().toString().trim();
-  handleTextSelection(selectedText);
+// Listen for text selection events
+document.addEventListener('mouseup', handleTextSelection);
+document.addEventListener('keyup', function(e) {
+  // Check for Ctrl+A (Windows) or Cmd+A (Mac)
+  if ((e.ctrlKey || e.metaKey) && e.key === 'a') {
+    // Small delay to ensure the selection is complete
+    setTimeout(handleTextSelection, 10);
+  }
 });
 
 // Listen for keyboard shortcut

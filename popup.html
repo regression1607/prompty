@@ -1,17 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Text Improver with Gemini</title>
-  <link rel="stylesheet" href="styles.css">
+  <title>Prompty (Text Enhancer)</title>
 </head>
-<body>
-  <div class="container">
-    <h2>Text Improver with Gemini</h2>
-    <div id="apiKeySection">
-      <input type="password" id="apiKey" placeholder="Enter your Gemini API key">
-      <button id="saveKey">Save API Key</button>
+<body style="margin: 0; padding: 0; background: #1c1c1e; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif; color: #ffffff;">
+  <div class="container" style="padding: 20px; min-width: 300px;">
+    <h2 style="margin: 0 0 20px 0; font-size: 1.5em; font-weight: 500; color: #ffffff; border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding-bottom: 10px;">Prompty (Text Enhaner)</h2>
+    <div id="apiKeySection" style="margin-bottom: 20px;">
+      <input type="password" id="apiKey" placeholder="Enter your Gemini API key" style="width: 100%; padding: 10px; margin-bottom: 10px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 8px; color: #ffffff; font-size: 0.9em; box-sizing: border-box; outline: none; transition: all 0.2s ease;">
+      <button id="saveKey" style="width: 100%; padding: 10px; background: #007AFF; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 500; font-size: 0.9em; transition: all 0.2s ease; opacity: 0.9;">Save API Key</button>
     </div>
-    <div id="status"></div>
+    <div id="status" style="padding: 10px; border-radius: 8px; font-size: 0.9em; display: none;"></div>
   </div>
   <script src="popup.js"></script>
 </body>
